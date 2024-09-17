@@ -1,0 +1,56 @@
+(?<Article>\b(?:the|a|an)\b)
+
+(?<DefinitiveDeterminer>\b(?:this|that|these|those)\b)
+
+(?<IndefiniteDeterminer>\b(?:some|any|many|few|several|each|every|another|either|neither|one|all|both|none|such)\b)
+
+(?<LinkingVerb>\b(?:am|is|are|was|were)(?:n't|\snot)?\b)
+
+(?<Conjunction>\b(?:for|and|nor|but|or|yet|so|after|although|as|because|before|even|if|once|since|though|unless|while)\b)
+
+(?<Preposition>\b(?:about|above|across|after|against|amid|among|anti|around|as|at|before|behind|below|beneath|beside|besides|between|beyond|by|despite|down|during|except|for|from|in|inside|into|like|minus|near|of|off|on|onto|opposite|over|past|per|plus|since|than|through|to|toward|towards|under|underneath|unlike|until|up|upon|versus|via|with|within|without|along)\b)
+
+(?<Pronoun>
+    (?<PersonalPronoun>\b(?:me|you|he|him|she|her|us|them)\b)
+    |
+    (?<SubjectPersonalPronoun>\b(?:I|we|they)\b)
+    |
+    (?<PossessivePronoun>\b(?:my|your|his|her|its|our|their)\b)
+    |
+    (?<ReflexivePronoun>\b(?:my|your|him|her|it|our|their|one)(?:self|selves)\b)
+    |
+    (?<DemonstrativePronoun>\b(?:this|that|those|these|it)\b)
+    |
+    (?<InterrogativePronoun>\b(?:who|whom|whose|which|what)\b)
+    |
+    (?<IndefinitePronoun>\b(?:many|few|whoever|whomever|whichever|whatever|(?:some|any|every|no[^\S\n]?)(?:one|body|thing)?)\b)
+)
+(?<Pronoun>(?<PersonalPronoun>\b(?:me|you|he|him|she|her|us|them)\b)|(?<SubjectPersonalPronoun>\b(?:I|we|they)\b)|(?<PossessivePronoun>\b(?:my|your|his|her|its|our|their)\b)|(?<ReflexivePronoun>\b(?:my|your|him|her|it|our|their|one)(?:self|selves)\b)|(?<DemonstrativePronoun>\b(?:this|that|those|these|it)\b)|(?<InterrogativePronoun>\b(?:who|whom|whose|which|what)\b)|(?<IndefinitePronoun>\b(?:many|few|whoever|whomever|whichever|whatever|(?:some|any|every|no[^\S\n]?)(?:one|body|thing)?)\b))
+
+(?<Auxiliary>
+    (?<AffirmativeAuxiliary>\b(?:do|does)(?:n'?t)?\b)
+    |
+    (?<PerfectAuxiliary>\b(?:did|have|has|had)(?:n'?t)?\b)
+    |
+    (?<ModalAuxiliary>\b(?:can(?:'t|not)?|(?:could|may|might|must|shall|should|will|would)(?:n'?t|'?ve)?)\b)
+)
+(?<Auxiliary>(?<AffirmativeAuxiliary>\b(?:do|does)(?:n'?t)?\b)|(?<PerfectiveAuxiliary>\b(?:did|have|has|had)(?:n'?t)?\b)|(?<ModalAuxiliary>\b(?:can(?:'t|not)?|(?:could|may|might|must|shall|should|will|would)(?:n'?t|'?ve)?)\b))
+
+(?<Adverb>
+    (?<AdverbOfPlace>\b(?:here|there|everywhere|nowhere|nearby|far|inside|outside)\b)
+    |
+    (?<AdverbOfTime>\b(?:now|then|today|tonight|tomorrow|yesterday|soon|later|early|late)\b)
+    |
+    (?<AdverbOfFrequency>\b(?:always|never|often|sometimes|seldom)\b)
+    |
+    (?<AdverbOfDegree>\b(?:very|too|so|quite|rather|almost|just|most|also)\b)
+)
+(?<Adverb>(?<AdverbOfPlace>\b(?:here|there|everywhere|nowhere|nearby|far|inside|outside)\b)|(?<AdverbOfTime>\b(?:now|then|today|tonight|tomorrow|yesterday|soon|later|early|late)\b)|(?<AdverbOfFrequency>\b(?:always|never|often|sometimes|seldom)\b)|(?<AdverbOfDegree>\b(?:very|too|so|quite|rather|almost|just|most|also)\b))
+
+
+
+# Captures every function word
+(?:(?<Article>\b(?:the|a|an)\b)|(?<DefinitiveDeterminer>\b(?:this|that|these|those)\b)|(?<IndefiniteDeterminer>\b(?:some|any|many|few|several|each|every|another|either|neither|one|all|both|none|such)\b)|(?<LinkingVerb>\b(?:am|is|are|was|were)(?:n't|\snot)?\b)|(?<Conjunction>\b(?:for|and|nor|but|or|yet|so|after|although|as|because|before|even|if|once|since|though|unless|while)\b)|(?<Auxiliary>(?<AffirmativeAuxiliary>\b(?:do|does)(?:n'?t)?\b)|(?<PerfectAuxiliary>\b(?:did|have|has|had)(?:n'?t)?\b)|(?<ModalAuxiliary>\b(?:can(?:'t|not)?|(?:could|may|might|must|shall|should|will|would)(?:n'?t|'?ve)?)\b))|(?<Pronoun>(?<PersonalPronoun>\b(?:me|you|he|him|she|her|us|them)\b)|(?<SubjectPersonalPronoun>\b(?:I|we|they)\b)|(?<PossessivePronoun>\b(?:my|your|his|her|its|our|their)\b)|(?<ReflexivePronoun>\b(?:my|your|him|her|it|our|their|one)(?:self|selves)\b)|(?<DemonstrativePronoun>\b(?:this|that|those|these|it)\b)|(?<InterrogativePronoun>\b(?:who|whom|whose|which|what)\b)|(?<IndefinitePronoun>\b(?:many|few|whoever|whomever|whichever|whatever|(?:some|any|every|no[^\S\n]?)(?:one|body|thing)?)\b))|(?<Adverb>(?<AdverbOfPlace>\b(?:here|there|everywhere|nowhere|nearby|far|inside|outside)\b)|(?<AdverbOfTime>\b(?:now|then|today|tonight|tomorrow|yesterday|soon|later|early|late)\b)|(?<AdverbOfFrequency>\b(?:always|never|often|sometimes|seldom)\b)|(?<AdverbOfDegree>\b(?:very|too|so|quite|rather|almost|just|most|also)\b))|(?<Preposition>\b(?:about|above|across|after|against|amid|among|anti|around|as|at|before|behind|below|beneath|beside|besides|between|beyond|by|despite|down|during|except|for|from|in|inside|into|like|minus|near|of|off|on|onto|opposite|over|past|per|plus|since|than|through|to|toward|towards|under|underneath|unlike|until|up|upon|versus|via|with|within|without|along)\b))
+
+# Captures every content word
+(?!(?<Article>\b(?:the|a|an)\b)|(?<DefinitiveDeterminer>\b(?:this|that|these|those)\b)|(?<IndefiniteDeterminer>\b(?:some|any|many|few|several|each|every|another|either|neither|one|all|both|none|such)\b)|(?<LinkingVerb>\b(?:am|is|are|was|were)(?:n't|\snot)?\b)|(?<Conjunction>\b(?:for|and|nor|but|or|yet|so|after|although|as|because|before|even|if|once|since|though|unless|while)\b)|(?<Auxiliary>(?<AffirmativeAuxiliary>\b(?:do|does)(?:n'?t)?\b)|(?<PerfectAuxiliary>\b(?:did|have|has|had)(?:n'?t)?\b)|(?<ModalAuxiliary>\b(?:can(?:'t|not)?|(?:could|may|might|must|shall|should|will|would)(?:n'?t|'?ve)?)\b))|(?<Pronoun>(?<PersonalPronoun>\b(?:me|you|he|him|she|her|us|them)\b)|(?<SubjectPersonalPronoun>\b(?:I|we|they)\b)|(?<PossessivePronoun>\b(?:my|your|his|her|its|our|their)\b)|(?<ReflexivePronoun>\b(?:my|your|him|her|it|our|their|one)(?:self|selves)\b)|(?<DemonstrativePronoun>\b(?:this|that|those|these|it)\b)|(?<InterrogativePronoun>\b(?:who|whom|whose|which|what)\b)|(?<IndefinitePronoun>\b(?:many|few|whoever|whomever|whichever|whatever|(?:some|any|every|no[^\S\n]?)(?:one|body|thing)?)\b))|(?<Adverb>(?<AdverbOfPlace>\b(?:here|there|everywhere|nowhere|nearby|far|inside|outside)\b)|(?<AdverbOfTime>\b(?:now|then|today|tonight|tomorrow|yesterday|soon|later|early|late)\b)|(?<AdverbOfFrequency>\b(?:always|never|often|sometimes|seldom)\b)|(?<AdverbOfDegree>\b(?:very|too|so|quite|rather|almost|just|most|also)\b))|(?<Preposition>\b(?:about|above|across|after|against|amid|among|anti|around|as|at|before|behind|below|beneath|beside|besides|between|beyond|by|despite|down|during|except|for|from|in|inside|into|like|minus|near|of|off|on|onto|opposite|over|past|per|plus|since|than|through|to|toward|towards|under|underneath|unlike|until|up|upon|versus|via|with|within|without|along)\b))(\b\w+\b)

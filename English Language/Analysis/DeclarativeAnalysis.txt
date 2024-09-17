@@ -1,0 +1,77 @@
+  | clause Type |          Word 1          |          Word 2          |          Word 3          |
+x | Imperative    | go:                 verb | to:        [preposition] | the:           [article] |
+b | Imperative    | deliver:            verb | mail:               noun | to:        [preposition] |
+m | Imperative    | eat:                verb | your:          [pronoun] | food:               noun |
+q | Imperative    | take:               verb | your:          [pronoun] | shoes:              noun |
+k | Declarative   | horses:   noun [endsInS] | eat:                verb | hay:                noun |
+y | Declarative   | she:           [pronoun] | works:    verb [endsInS] | at:        [preposition] |
+t | Declarative   | he:            [pronoun] | is:       [linking verb] | furniture:          noun |
+i | Declarative   | cats:     noun [endsInS] | are:      [linking verb] | animals:  noun [endsInS] |
+
+Theories:
+1. When there is a linking verb, the clause is always declarative.
+2. Where there's a word that ends in "s", the clause is always declarative.
+
+Let's test this theory:
+
+  |  Test Type  |          Word 1          |          Word 2          |          Word 3          | Actual Type |
+x | Imperative? | goes:     verb [endsInS] | to:        [preposition] | the:           [article] | Declarative |
+y | Imperative? | she:           [pronoun] | works:    verb [endsInS] | at:        [preposition] | Declarative |
+m | Imperative? | grab:               verb | some:          [pronoun] | hotdogs:  noun [endsInS] | Imperative! |
+
+Results: Theory failed 2. If the third word ends in "s", the clause is not always declarative.
+
+Theory 2 (update 1):
+2. When either of the *first two* words ends in "s", the clause is always declarative.
+
+Let's test this theory, tracking only the *first two* words:
+
+  |  Test Type  |          Word 1          |          Word 2          | Actual Type |
+x | Imperative? | goes:     verb [endsInS] | to:        [preposition] | Declarative |
+y | Imperative? | she:           [pronoun] | works:    verb [endsInS] | Declarative |
+m | Imperative? | grab:               verb | some:          [pronoun] | Imperative! |
+
+Results: Theory 2 holds. If either of the first two words ends in "s", the clause is always declarative.
+
+Forced failure attempt:
+h | Imperative? | bring:              verb | supplies: noun [endsInS] | Imperative! |
+
+Results: Theory 2 failed. If the second word ends in "s", the clause is not always declarative.
+
+Theory 2 (update 2):
+2a. When the *first* word ends in "s" OR
+2b. When the *first* word is a pronoun, the clause is always declarative.
+
+Let's test this theory, tracking only the *first* word:
+
+  |  Test Type  |          Word 1          | Actual Type |
+x | Imperative? | goes:     verb [endsInS] | Declarative |
+y | Imperative? | she:           [pronoun] | Declarative |
+m | Imperative? | grab:               verb | Imperative! |
+h | Imperative? | bring:              verb | Imperative! |
+
+Results: Theory 2 holds. If the first word ends in "s" or is a pronoun, the clause is always declarative.
+
+Forced failure attempt:
+h | Imperative? | leaves:   verb [endsInS] | Declarative |
+l | Imperative? | it:            [pronoun] | Declarative |
+g | Imperative? | brings:   verb [endsInS] | Declarative |
+e | Imperative? | they:          [pronoun] | Declarative |
+
+Results: Theory 2 holds again. If the first word ends in "s" or is a pronoun, the clause is always declarative.
+
+Conclusion:
+The clause is always declarative if any of the following are true:
+a. The clause contains a linking verb.
+b. The first word of the clause is a pronoun.
+c. The first word of the clause ends in "s".
+
+Refined conclusion:
+The clause is always Declarative if any of the following are true:
+a. The first word is a pronoun or determiner.
+b. The first word ends in "s".
+c. The 2nd word is a linking verb.
+
+And all of the following are not true:
+a. Ends in a question mark (interrogative; may still contain "is", as in, "[Is] Mark home?")
+b. Begins with "if" (conditional; may contain "is" as in "if it [is] too hard, you can ask for help")

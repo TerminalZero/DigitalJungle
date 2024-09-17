@@ -1,0 +1,3 @@
+- [ ] Deploy project template to DigitalOcean
+- [ ] Create self-intruductory page
+- [ ] Pick a stack

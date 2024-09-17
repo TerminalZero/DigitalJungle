@@ -1,0 +1,66 @@
+Nominalizing suffixes in English are used to convert words from other parts of speech (like verbs or adjectives) into nouns. Here’s a list of common nominalizing suffixes along with the word classes they typically convert:
+
+-tion, -sion, -ation (from verbs)
+   - Converts verbs to nouns. Example: "information" from "inform," "decision" from "decide," "celebration" from "celebrate."
+
+-ment (from verbs)
+   - Converts verbs to nouns. Example: "movement" from "move," "agreement" from "agree."
+
+-ness (from adjectives)
+   - Converts adjectives to nouns. Example: "happiness" from "happy," "darkness" from "dark."
+
+-ity, -ty (from adjectives)
+   - Converts adjectives to nouns. Example: "activity" from "active," "equality" from "equal."
+
+-ship (from nouns or adjectives)
+   - Converts nouns or adjectives to nouns, often denoting state, quality, or skill. Example: "friendship" from "friend," "leadership" from "leader."
+
+-dom (from nouns or adjectives)
+   - Converts nouns or adjectives to nouns, typically indicating a domain, state of being, or condition. Example: "freedom" from "free," "kingdom" from "king."
+
+-ance, -ence (from verbs)
+   - Converts verbs to nouns. Example: "resistance" from "resist," "dependence" from "depend."
+
+-hood (from nouns or adjectives)
+   - Converts nouns or adjectives to nouns, often referring to a condition or period. Example: "childhood" from "child," "likelihood" from "likely."
+
+-ism (from adjectives, verbs, or nouns)
+   - Converts adjectives, verbs, or nouns to nouns, typically to form nouns describing systems, practices, or ideologies. Example: "capitalism" from "capital," "realism" from "real."
+
+-er, -or (from verbs)
+   - Converts verbs to nouns, typically indicating someone who performs an action or something that performs a function. Example: "teacher" from "teach," "actor" from "act."
+
+-ess (from nouns)
+
+Typically added to masculine nouns to form feminine counterparts. Examples: "actress" from "actor," "waitress" from "waiter."
+-ist (from nouns or adjectives)
+
+Converts nouns or adjectives to nouns to denote a person who practices a profession or adheres to a certain belief. Examples: "artist" from "art," "biologist" from "biology."
+-ian (from nouns)
+
+Converts nouns to nouns, usually to denote nationality, a professional or occupational affiliation. Examples: "Canadian" from "Canada," "musician" from "music."
+-ee (from verbs or nouns)
+
+Converts verbs or nouns to nouns to indicate a person who is the recipient or beneficiary of an action. Examples: "employee" from "employ," "refugee" from "refuge."
+-ite (from nouns)
+
+Converts nouns to nouns, typically to indicate affiliation or association, often with a place or ideology. Examples: "Luddite" from "Ludd" (historical reference), "Israelite" from "Israel."
+-ster (from nouns)
+
+Converts nouns to nouns, often indicating a person involved in a certain activity, sometimes with a colloquial or informal tone. Examples: "hipster" from "hip," "gangster" from "gang."
+
+
+These suffixes are pivotal in expanding the vocabulary of English, allowing for the expression of complex concepts and states through the modification of simpler words.
+
+
+(?<NominalizingSuffixes>\b
+    (?:
+        (?<FromVerbs>tion|sion|ation|ment|ance|ence|er|or|ure)
+        |
+        (?<FromAdjectives>ness|ity|ism)
+        |
+        (?<FromNounsOrAdjectives>ship|dom|hood)
+        |
+        (?<FromNouns>ess|ist|ian|ee|ite|ster|ism)
+    )
+\b)

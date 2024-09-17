@@ -1,0 +1,168 @@
+   |      Word 1       |            Word 2            |            Word 3           |
+0  | Explore:     verb | new:            adjective    | places:        (any plural) |
+1  | Learn:       verb | new:            adjective    | skills:        (any plural) |
+2  | Try:         verb | different:      adjective    | approaches:    (any plural) |
+3  | Embrace:     verb | change:         noun         | and:           conjunction  |
+4  | Adapt:       verb | to:             preposition  | new:           adjective    |
+5  | Connect:     verb | with:           preposition  | like-minded:   adjective    |
+6  | Create:      verb | innovative:     adjective    | solutions:     (any plural) |
+7  | Collaborate: verb | effectively:    adverb       | with:          preposition  |
+8  | Inspire:     verb | others:         pronoun      | through:       preposition  |
+9  | Achieve:     verb | your:           pronoun      | goals:         (any plural) |
+10 | Practice:    verb | makes:          verb         | perfect:       adjective    |
+11 | Maintain:    verb | a:              article      | positive:      adjective    |
+12 | Foster:      verb | meaningful:     adjective    | relationships: (any plural) |
+13 | Cultivate:   verb | a:              article      | growth:        noun         |
+14 | Balance:     verb | work:           noun         | and:           conjunction  |
+15 | Nurture:     verb | your:           pronoun      | well-being:    noun         |
+16 | Reflect:     verb | on:             preposition  | your:          pronoun      |
+17 | Evaluate:    verb | your:           pronoun      | progress:      noun         |
+18 | Adapt:       verb | to:             preposition  | challenges:    (any plural) |
+19 | Celebrate:   verb | attainment:     (any plural) | and:           conjunction  |
+20 | Listen:      verb | actively:       adverb       | to:            preposition  |
+21 | Take:        verb | actionable:     adjective    | steps:         (any plural) |
+22 | Prioritize:  verb | important:      adjective    | tasks:         (any plural) |
+23 | Remain:      verb | resilient:      adjective    | in:            preposition  |
+24 | Stay:        verb | adaptable:      adjective    | to:            preposition  |
+25 | Communicate: verb | effectively:    adverb       | with:          preposition  |
+26 | Follow:      verb | guidelines:     (any plural) | and:           conjunction  |
+27 | Take:        verb | responsibility: noun         | for:           preposition  |
+28 | Be:          verb | mindful:        adjective    | of:            preposition  |
+29 | Strive:      verb | for:            preposition  | improvement:   noun         |
+30 | Be:          verb | open:           adjective    | to:            preposition  |
+31 | Sing:        verb | with:           preposition  | joy:           noun         |
+32 | Speak:       verb | to:             preposition  | the:           article      |
+33 | Talk:        verb | under:          preposition  | your:          pronoun      |
+34 | Go:          verb | to:             preposition  | the:           article      |
+35 | Stop:        verb | and:            conjunction  | smell:         verb         |
+36 | Stop:        verb | and:            conjunction  | listen:        verb         |
+37 | John: proper noun | and:            conjunction  | Jane:          proper noun  |
+38 | Slow:        verb | down:           adverb       | and:           conjunction  |
+39 | Hear:        verb | yourself:       pronoun      | John:          proper noun  |
+40 | Listen:      verb | to:             preposition  | yourself:      pronoun      |
+
+
+Uninversal Adverb Identification:       Ends in '-ly', with some exceptions.
+Uninversal Plural Noun Identification:  Ends in '-s', with some exceptions.
+Uninversal Pronoun Identification:      You, I, My, Your, etc.
+Uninversal Preposition Identification:  In, On, At, To, For, With, etc.
+Uninversal Conjunction Identification:  And, Or, But, etc.
+
+Well-defined (Testable): articles, pronouns, prepositions, conjunctions, linking verbs, modal verbs, gerunds
+Loosely-defined (Partially Testable): adverbs, plural nouns
+Undefined (Untestable): nouns, adjectives, verbs
+
+Current analysis: articles, pronouns, prepositions, conjunctions, adverbs
+
+Instances when word 2 is an <article>:
+11 | Maintain:    verb | a:              article      | positive:      adjective    | O
+13 | Cultivate:   verb | a:              article      | growth:        noun         | O
+Result: If word 2 is an article, word 3 is not *any* of the well-defined: adverb, plural noun, pronoun, preposition, conjunction. Not testable. X
+Note: If the 1st word is neither of interrogative mood (who the) or a contraction (I'm the), Sentence is implicitly Imperative no matter what word 3 is. However because articles are very prevalent, it may not practical to test a mood and contraction lookbehind for every article. X
+
+Instances when word 2 is a <pronoun>:
+8  | Inspire:     verb | others:         pronoun      | through:       preposition  |
+9  | Achieve:     verb | your:           pronoun      | goals:         (any plural) |
+15 | Nurture:     verb | your:           pronoun      | well-being:    noun         |
+17 | Evaluate:    verb | your:           pronoun      | progress:      noun         |
+00 | Address:     verb | her:            pronoun      | now:           adverb       |
+Result: If word 2 is a pronoun, word 3 is a noun if it's not any of the well-defined: preposition, plural noun, adverb. While testable, instructions are too long to be practical. X
+Is not Result: If word 2 is a pronoun, word 3 is *not* any of the well-defined: article, conjunction. Both testable and practical, since the list for these is much shorter. O
+TODO: Test <word 3> for absence of Articles & Conjunctions when <word 2> is a <pronoun>
+
+Instances when word 2 is a <preposition>:
+4  | Adapt:       verb | to:             preposition  | new:           adjective    | X
+5  | Connect:     verb | with:           preposition  | like-minded:   adjective    | X
+16 | Reflect:     verb | on:             preposition  | your:          pronoun      | X
+18 | Adapt:       verb | to:             preposition  | challenges:    (any plural) | X
+29 | Strive:      verb | for:            preposition  | improvement:   noun         | X
+31 | Sing:        verb | with:           preposition  | joy:           noun         | X
+32 | Speak:       verb | to:             preposition  | the:           article      | X
+33 | Talk:        verb | under:          preposition  | your:          pronoun      | X
+34 | Go:          verb | to:             preposition  | the:           article      | X
+40 | Listen:      verb | to:             preposition  | yourself:      pronoun      | X
+Result: If word 2 is a preposition, word 3 can be undefined: noun, adjective - well-defined: article, pronoun. Not testable. X
+
+Instances when word 2 is a <conjunction>:
+34 | Stop:        verb | and:            conjunction  | think:         verb         |
+35 | Stop:        verb | and:            conjunction  | smell:         verb         |
+36 | Stop:        verb | and:            conjunction  | listen:        verb         |
+37 | John: proper noun | and:            conjunction  | Jane:          proper noun  |
+Result: If word 2 is a conjunction, word 3 is a verb if it's not a proper noun. Easily testable. O
+Is not Result: If word 2 is a conjunction, word 3 is *not* any of the well-defined: adverb, article, pronoun, preposition, plural noun. X
+TODO: Test <word 3> for absence of Proper Nouns when <word 2> is a <conjunction>
+
+Instances when word 2 is an <adverb>:
+7  | Collaborate: verb | effectively:    adverb       | with:          preposition  | O
+20 | Listen:      verb | actively:       adverb       | to:            preposition  | O
+25 | Communicate: verb | effectively:    adverb       | with:          preposition  | O
+38 | Slow:        verb | down:           adverb       | and:           conjunction  | O
+Result: If word 2 is an adverb, word 3 is a preposition if it's not a conjunction. Easily testable. O
+Is not Result: If word 2 is an adverb, word 3 is *not* any of the well-defined: article, pronoun, plural noun. X
+TODO: Test <word 3> for presence of a Conjunction and fallback to Preposition by default when <word 2> is an <adverb>
+
+Instances when word 3 is an <article>:
+32 | Speak:       verb | to:             preposition  | the:           article      |
+34 | Go:          verb | to:             preposition  | the:           article      |
+Result: If word 3 is an article, word 2 is a preposition. Easily testable. O
+TODO: Test <word 2> for presence of a Preposition when <word 3> is an <article>
+
+Instances when word 3 is a <pronoun>:
+16 | Reflect:     verb | on:             preposition  | your:          pronoun      |
+33 | Talk:        verb | under:          preposition  | your:          pronoun      |
+40 | Listen:      verb | to:             preposition  | yourself:      pronoun      |
+Result: If word 3 is a pronoun, word 2 is a preposition. Easily testable. O
+TODO: Test <word 2> for presence of a Preposition when <word 3> is a <pronoun>
+
+Instances when word 3 is a <preposition>:
+7  | Collaborate: verb | effectively:    adverb       | with:          preposition  |
+8  | Inspire:     verb | others:         pronoun      | through:       preposition  |
+20 | Listen:      verb | actively:       adverb       | to:            preposition  |
+23 | Remain:      verb | resilient:      adjective    | in:            preposition  |
+24 | Stay:        verb | adaptable:      adjective    | to:            preposition  |
+25 | Communicate: verb | effectively:    adverb       | with:          preposition  |
+27 | Take:        verb | responsibility: noun         | for:           preposition  |
+28 | Be:          verb | mindful:        adjective    | of:            preposition  |
+30 | Be:          verb | open:           adjective    | to:            preposition  |
+Result: If word 3 is a preposition, word 2 can be undefined: adverb, pronoun - well-defined: adjective, noun. Not testable. X
+
+Instances when word 3 is a <conjunction>:
+3  | Embrace:     verb | change:         noun         | and:           conjunction  |
+14 | Balance:     verb | work:           noun         | and:           conjunction  |
+19 | Celebrate:   verb | attainment:     (any plural) | and:           conjunction  |
+26 | Follow:      verb | guidelines:     (any plural) | and:           conjunction  |
+38 | Slow:        verb | down:           adverb       | and:           conjunction  |
+
+
+
+
+
+
+
+   |      Word 1       |            Word 2            |            Word 3           |
+25 | Communicate: verb | effectively:    adverb       | with:          preposition  |
+38 | Slow:        verb | down:           adverb       | and:           conjunction  |
+35 | Stop:        verb | and:            conjunction  | smell:         verb         |
+16 | Reflect:     verb | on:             preposition  | your:          pronoun      |
+18 | Adapt:       verb | to:             preposition  | challenges:    (any plural) |
+32 | Speak:       verb | to:             preposition  | the:           article      |
+8  | Inspire:     verb | others:         pronoun      | through:       preposition  |
+9  | Achieve:     verb | your:           pronoun      | goals:         (any plural) |
+19 | Celebrate:   verb | attainment:     (any plural) | and:           conjunction  |
+
+
+   |      Word 1       |            Word 2            |            Word 3           |
+32 | Speak:       verb | to:             preposition  | the:           article      |
+38 | Slow:        verb | down:           adverb       | and:           conjunction  |
+19 | Celebrate:   verb | attainment:     (any plural) | and:           conjunction  |
+35 | Stop:        verb | and:            conjunction  | smell:         verb         |
+
+8  | Inspire:     verb | others:         pronoun      | through:       preposition  |
+9  | Achieve:     verb | your:           pronoun      | goals:         (any plural) |
+25 | Communicate: verb | effectively:    adverb       | with:          preposition  |
+16 | Reflect:     verb | on:             preposition  | your:          pronoun      |
+18 | Adapt:       verb | to:             preposition  | challenges:    (any plural) |
+
+Easiest rules:
+If word 3 is an article or conjunction, the sentence is imperative mood
+If word 2 is not 

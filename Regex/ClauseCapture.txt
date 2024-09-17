@@ -1,0 +1,148 @@
+# Clause capturing regex (static length)
+(?<Clause>(?<!(?<Prefixes>..[\s][Mm]r|..[\s][Mm]s|..[\s][Dd]r|..[\s][Ss]r|..[\s][Ff]r|..[\s][Bb]r|..[\s][Mm]t|..[\s][Ss]t|..[\s][Rr]d|.[\s][Ss]ir|.[\s][Mm]rs|.[\s][Rr]ev|.[\s][Ss]gt|.[\s][Cc]pl|.[\s][Aa]pt|[\s][Pp]rof|[\s][Cc]apt|[\s][Bb]lvd)[.]\s)(?:(?<=^)|(?<=\w[.,;!?:]\s)).*?(?:[,;!?:]|$|(?<!(?:..[\s][Mm]r|..[\s][Mm]s|..[\s][Dd]r|..[\s][Ss]r|..[\s][Ff]r|..[\s][Bb]r|..[\s][Mm]t|..[\s][Ss]t|..[\s][Rr]d|.[\s][Ss]ir|.[\s][Mm]rs|.[\s][Rr]ev|.[\s][Ss]gt|.[\s][Cc]pl|.[\s][Aa]pt|[\s][Pp]rof|[\s][Cc]apt|[\s][Bb]lvd))[.]))
+(?<Clause>
+    (?<!
+        (?<Prefixes>
+            ..[\s][Mm]r
+            |
+            ..[\s][Mm]s
+            |
+            ..[\s][Dd]r
+            |
+            ..[\s][Ss]r
+            |
+            ..[\s][Ff]r
+            |
+            ..[\s][Bb]r
+            |
+            ..[\s][Mm]t
+            |
+            ..[\s][Ss]t
+            |
+            ..[\s][Rr]d
+            |
+            .[\s][Ss]ir
+            |
+            .[\s][Mm]rs
+            |
+            .[\s][Rr]ev
+            |
+            .[\s][Ss]gt
+            |
+            .[\s][Cc]pl
+            |
+            .[\s][Aa]pt
+            |
+            [\s][Pp]rof
+            |
+            [\s][Cc]apt
+            |
+            [\s][Bb]lvd
+        )
+        [.]\s
+    )
+    (?:
+        (?<=^)
+        |
+        (?<=\w[.,;!?:]\s)
+    )
+    .*?
+    (?:
+        [,;!?:]
+        |
+        $
+        |
+        (?<!
+            (?:
+                ..[\s][Mm]r
+                |
+                ..[\s][Mm]s
+                |
+                ..[\s][Dd]r
+                |
+                ..[\s][Ss]r
+                |
+                ..[\s][Ff]r
+                |
+                ..[\s][Bb]r
+                |
+                ..[\s][Mm]t
+                |
+                ..[\s][Ss]t
+                |
+                ..[\s][Rr]d
+                |
+                .[\s][Ss]ir
+                |
+                .[\s][Mm]rs
+                |
+                .[\s][Rr]ev
+                |
+                .[\s][Ss]gt
+                |
+                .[\s][Cc]pl
+                |
+                .[\s][Aa]pt
+                |
+                [\s][Pp]rof
+                |
+                [\s][Cc]apt
+                |
+                [\s][Bb]lvd
+            )
+        )
+        [.]
+    )
+)
+
+# Version 2 (variable length)
+(?<Clause>(?:(?<=^)|(?<=\S[.,;!?:'"`]\s))(?<!(?:[Mm]r|[Mm]s|[Dd]r|[Ss]r|[Ff]r|[Bb]r|[Mm]t|[Ss]t|[Rr]d|[Ss]ir|[Mm]rs|[Rr]ev|[Ss]gt|[Cc]pl|[Aa]pt|[Pp]rof|[Cc]apt|[Bb]lvd)[.]\s).*?(?:$|[,;!?:]['"`]?|(?<!(?:[Mm]r|[Mm]s|[Dd]r|[Ss]r|[Ff]r|[Bb]r|[Mm]t|[Ss]t|[Rr]d|[Ss]ir|[Mm]rs|[Rr]ev|[Ss]gt|[Cc]pl|[Aa]pt|[Pp]rof|[Cc]apt|[Bb]lvd))[.]))
+(?<Clause>
+    (?:
+        (?<=^)
+        |
+        (?<=\S[.,;!?:'"`]\s)
+    )
+    (?<!
+        (?:
+            [Mm]r|[Mm]s|[Dd]r|[Ss]r|[Ff]r|[Bb]r|[Mm]t|[Ss]t|[Rr]d|[Ss]ir|[Mm]rs|[Rr]ev|[Ss]gt|[Cc]pl|[Aa]pt|[Pp]rof|[Cc]apt|[Bb]lvd
+        )
+        [.]\s
+    )
+    .*?
+    (?:
+        $
+        |
+        [,;!?:]['"`]?
+        |
+        (?<!
+            (?:
+                [Mm]r|[Mm]s|[Dd]r|[Ss]r|[Ff]r|[Bb]r|[Mm]t|[Ss]t|[Rr]d|[Ss]ir|[Mm]rs|[Rr]ev|[Ss]gt|[Cc]pl|[Aa]pt|[Pp]rof|[Cc]apt|[Bb]lvd
+            )
+        )
+        [.]
+    )
+)
+
+# Overly-Simplified
+(?<Clause>(?:(?<=^)|(?<=\S[.,;!?:'"`]\s)).*?(?:$|[.,;!?:]))
+(?<Clause>
+    (?:
+        (?<=^)
+        |
+        (?<=\S[.,;!?:'"`]\s)
+    )
+    .*?
+    (?:
+        $
+        |
+        [.,;!?:]
+    )
+)
+
+# Sentence capturing regex
+(?:(?<=^)|(?<=[^\s]{4}[\n.!?:]\s))(?<FirstClause>(?!\n)[^\n.!?:]*?[,])?(?=.)(?<RemainingClause>.*?(?:$|[^\s]{4}(?:[.!?:])))
+
+(?:(?<=^)|(?<=[^\s]{4}[\n.!?:]\s))
+(?<FirstClause>(?!\n)[^\n.!?:]*?[,])?(?=.)
+(?<RemainingClause>.*?(?:$|[^\s]{4}(?:[.!?:])))
